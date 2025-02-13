@@ -5,7 +5,7 @@ import { sendSOAPRequest } from "../clients/soapClient.js";
 import client from "../clients/graphqlClient.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 let apiKey = "5b3ce3597851110001cf6248d87655b10a734a83883caeef98ebf801";
 
@@ -154,6 +154,4 @@ app.post("/api/vehicles", async (req, res) => {
 // ========================
 // Démarrage du serveur
 
-app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
-});
+app.listen(PORT, () => {});
