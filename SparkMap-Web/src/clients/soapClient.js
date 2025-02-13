@@ -12,7 +12,7 @@ async function sendSOAPRequest(method, params) {
     </soapenv:Envelope>`;
 
     try {
-        const response = await axios.post("https://sparkmap-soap.onrender.com", packet, {
+        const response = await axios.post("https://sparkmap.onrender.com", packet, {
             headers: {
                 "Content-Type": "text/xml; charset=utf-8",
                 "SOAPAction": method
