@@ -3,9 +3,12 @@ import { gql } from "@apollo/client/core/index.js";
 import axios from "axios";
 import { sendSOAPRequest } from "../clients/soapClient.js";
 import client from "../clients/graphqlClient.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 const GET_VEHICLES = gql`
         query vehicleListAll {
@@ -152,4 +155,6 @@ app.get("/api/vehicles", async (req, res) => {
 // ========================
 // Démarrage du serveur
 
-app.listen(PORT, () => {});
+app.listen(PORT, () => {
+    console.log("Clé API chargée :", process.env.ITINERARY_KEY);
+});
