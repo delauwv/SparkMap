@@ -76,7 +76,7 @@
       let chargingStations = [];
 
       if ($selectedVehicle) {
-        pointsRecharge = getPointsEveryXKm(initialRoute, $selectedVehicle.range.chargetrip_range.worst);
+        pointsRecharge = getPointsEveryXKm(initialRoute, $selectedVehicle.range.chargetrip_range.worst - (radius / 1000));
         chargingStations = await getChargingStations(pointsRecharge, radius);
       }
       
