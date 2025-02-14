@@ -8,7 +8,7 @@
 
   let mapContainer;
   let map;
-  let radius = 10000;
+  let radius = 30000;
 
   // Initialisation de la map
   onMount(() => {
