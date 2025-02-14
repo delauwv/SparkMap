@@ -7,8 +7,6 @@ import client from "../clients/graphqlClient.js";
 const app = express();
 const PORT = process.env.PORT;
 
-let apiKey = "5b3ce3597851110001cf6248d87655b10a734a83883caeef98ebf801";
-
 const GET_VEHICLES = gql`
         query vehicleListAll {
             vehicleList(size: 100) {
@@ -48,7 +46,7 @@ async function getItineraryCost(distance, vehicleRange, batteryPower) {
 
 // Calcule un itinéraire entre deux points et retourne sa polyline
 function calculateItinerary(latOrigin, lonOrigin, latDest, lonDest) {
-    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${lonOrigin},${latOrigin}&end=${lonDest},${latDest}`;
+    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${process.env.ITINERARY_KEY}&start=${lonOrigin},${latOrigin}&end=${lonDest},${latDest}`;
 
     return axios.get(url).then((response) => {
         const coordinates = response.data.features[0].geometry.coordinates;

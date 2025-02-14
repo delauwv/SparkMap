@@ -4,8 +4,8 @@ const client = new ApolloClient({
   link: new HttpLink({
     uri: "https://api.chargetrip.io/graphql",
     headers: {
-      "x-client-id": "67a6085b8c98b467af96e1d5",
-      "x-app-id": "67a6085b8c98b467af96e1d7",
+      "x-client-id": process.env.GRAPHQL_CLIENT_KEY,
+      "x-app-id": process.env.GRAPHQL_APP_KEY,
     },
   }),
   cache: new InMemoryCache(),

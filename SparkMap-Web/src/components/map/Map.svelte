@@ -9,7 +9,6 @@
   let mapContainer;
   let map;
   let radius = 10000;
-  let apiKey = "5b3ce3597851110001cf6248d87655b10a734a83883caeef98ebf801";
 
   // Initialisation de la map
   onMount(() => {
@@ -60,7 +59,7 @@
 
   // Calcule un itinéraire entre deux points et retourne sa polyline
   function calculateItinerary(latOrigin, lonOrigin, latDest, lonDest) {
-    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${lonOrigin},${latOrigin}&end=${lonDest},${latDest}`;
+    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${process.env.ITINERARY_KEY}&start=${lonOrigin},${latOrigin}&end=${lonDest},${latDest}`;
 
     return axios.get(url).then((response) => {
       const coordinates = response.data.features[0].geometry.coordinates;
