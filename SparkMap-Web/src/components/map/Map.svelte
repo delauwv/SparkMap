@@ -25,13 +25,6 @@
     });
   }
 
-  const errorIcon = L.icon({
-    iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  });
-
   const stationIcon = L.icon({
     iconUrl: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png',
     iconSize: [32, 32],
@@ -163,7 +156,6 @@
 
         return [stationLat, stationLon];
       } else {
-        addMarker(lat, lon, errorIcon);
         return null;
       }
     } catch (error) {
