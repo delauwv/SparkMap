@@ -78,7 +78,7 @@ async function fetchChargingStation(lat, lon, radius) {
 // Routes
 
 // Route API pour récupérer la durée de l'itinéraire
-app.post("/api/itinerary-duration", async (req, res) => {
+app.get("/api/itinerary-duration", async (req, res) => {
     const { distance, vehicleRange, batteryPower } = req.body;
 
     if (!distance || !vehicleRange || !batteryPower) {
@@ -94,7 +94,7 @@ app.post("/api/itinerary-duration", async (req, res) => {
 });
 
 // Route API pour récupérer le coût de l'itinéraire
-app.post("/api/itinerary-cost", async (req, res) => {
+app.get("/api/itinerary-cost", async (req, res) => {
     const { distance, vehicleRange, batteryPower } = req.body;
 
     if (!distance || !vehicleRange || !batteryPower) {
@@ -110,7 +110,7 @@ app.post("/api/itinerary-cost", async (req, res) => {
 });
 
 // Route API pour récupérer un itinéraire entre deux points
-app.post("/api/itinerary", async (req, res) => {
+app.get("/api/itinerary", async (req, res) => {
     const { latOrigin, lonOrigin, latDest, lonDest } = req.body;
 
     if (!latOrigin || !lonOrigin || !latDest || !lonDest) {
@@ -126,7 +126,7 @@ app.post("/api/itinerary", async (req, res) => {
 });
 
 // Route API pour récupérer la borne de recharge la plus proche d'un point donné
-app.post("/api/closest-station", async (req, res) => {
+app.get("/api/closest-station", async (req, res) => {
     const { lat, lon, radius } = req.body;
 
     if (!lat || !lon || !radius) {
@@ -142,7 +142,7 @@ app.post("/api/closest-station", async (req, res) => {
 });
 
 // Route API pour récupérer la liste des véhicules
-app.post("/api/vehicles", async (req, res) => {
+app.get("/api/vehicles", async (req, res) => {
     try {
         const result = await client.query({ query: GET_VEHICLES });
         res.json({ vehicles: result.data.vehicleList });
