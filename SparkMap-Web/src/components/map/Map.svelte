@@ -153,7 +153,6 @@
   // Récupère la borne la plus proche d'un point
   async function fetchChargingStation(lat, lon, radius) {
     const url = `https://odre.opendatasoft.com/api/records/1.0/search/?dataset=bornes-irve&geofilter.distance=${lat},${lon},${radius}&rows=1`;
-    console.log(url);
 
     try {
       const response = await axios.get(url);
